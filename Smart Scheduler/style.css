@@ -1,0 +1,81 @@
+:root {
+    --primary: #6366f1;
+    --primary-light: #818cf8;
+    --bg: #0f172a;
+    --sidebar: #1e293b;
+    --card: #334155;
+    --text: #f8fafc;
+    --accent: #f43f5e;
+    --kuliah: #3b82f6;
+    --hmif: #f59e0b;
+    --pribadi: #10b981;
+    --hobi: #ec4899;
+}
+
+* { box-sizing: border-box; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+
+body { 
+    font-family: 'Quicksand', sans-serif; 
+    background: var(--bg); 
+    color: var(--text); 
+    margin: 0; 
+}
+
+h1, h2, h3, .logo h2 { font-family: 'Montserrat', sans-serif; }
+
+/* LOGIN PAGE */
+.login-overlay { position: fixed; inset: 0; background: var(--bg); display: flex; justify-content: center; align-items: center; z-index: 2000; }
+.login-card { background: var(--sidebar); padding: 50px; border-radius: 40px; text-align: center; width: 420px; box-shadow: 0 30px 60px rgba(0,0,0,0.6); border: 2px solid var(--primary-light); }
+.login-profile-img { width: 140px; height: 140px; border-radius: 50%; border: 5px solid var(--primary-light); margin-bottom: 25px; object-fit: cover; box-shadow: 0 0 20px var(--primary-light); }
+
+/* DASHBOARD */
+.app-container { display: flex; min-height: 100vh; }
+.sidebar { width: 350px; background: var(--sidebar); padding: 30px; border-right: 1px solid rgba(255,255,255,0.1); position: sticky; top: 0; height: 100vh; overflow-y: auto; }
+.content { flex: 1; padding: 40px; background: #0b1120; }
+
+/* ANIMASI FAIRY */
+@keyframes fairyDust {
+    0% { box-shadow: 0 0 5px rgba(255,255,255,0.3); }
+    50% { box-shadow: 0 0 20px rgba(129, 140, 248, 0.6); }
+    100% { box-shadow: 0 0 5px rgba(255,255,255,0.3); }
+}
+
+.timeline-item { 
+    background: var(--sidebar); 
+    padding: 25px; 
+    border-radius: 30px; 
+    border-left: 10px solid var(--primary); 
+    animation: fairyDust 3s infinite; 
+    margin-bottom: 20px;
+}
+
+.cat-Kuliah { border-left-color: var(--kuliah); }
+.cat-HMIF { border-left-color: var(--hmif); }
+.cat-Pribadi { border-left-color: var(--pribadi); }
+.cat-Hobi { border-left-color: var(--hobi); }
+
+/* STATS */
+.stats-card { background: rgba(99, 102, 241, 0.1); padding: 20px; border-radius: 25px; margin-bottom: 25px; }
+.progress-container { background: #1e293b; height: 10px; border-radius: 10px; overflow: hidden; margin: 10px 0; }
+.progress-fill { background: linear-gradient(90deg, var(--primary), var(--primary-light)); height: 100%; width: 0%; }
+
+/* BUTTONS & INPUTS */
+input, select { width: 100%; background: #0f172a; border: 1.5px solid #475569; padding: 12px; border-radius: 15px; color: white; outline: none; margin-bottom: 10px; }
+.btn-primary { width: 100%; background: var(--primary); color: white; border: none; padding: 16px; border-radius: 15px; font-weight: 700; cursor: pointer; }
+.btn-primary:hover { transform: translateY(-3px) scale(1.02); background: var(--primary-light); }
+
+/* CLOCK */
+.clock-display { padding: 20px; border-radius: 25px; text-align: center; border: 2px dashed var(--primary-light); background: rgba(255,255,255,0.02); }
+.clock-display h2 { margin: 0; color: var(--primary-light); font-size: 2.2rem; }
+
+/* MODAL ANIMATION */
+.scale-up { animation: scaleUp 0.3s ease-out; }
+@keyframes scaleUp { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+/* DEGUPAN ALARM */
+@keyframes softPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); box-shadow: 0 0 30px var(--accent); }
+    100% { transform: scale(1); }
+}
+.is-vibrating { animation: softPulse 0.6s infinite; border: 3px solid var(--accent) !important; }
